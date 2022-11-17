@@ -3,6 +3,7 @@
 string[] firstArray = { "hello", "2", "world", ":-)" };
 string[] secondArray = { "1234", "1567", "-2", "computer science" };
 string[] thirdArray = { "Russia", "Denmark", "Kazan" };
+string[][] all = { firstArray, secondArray, thirdArray };
 
 string[] FilterStringForLength(string[] arr, int strLength)
 {
@@ -11,11 +12,17 @@ string[] FilterStringForLength(string[] arr, int strLength)
 
 void PrintMyArray(string[] arr)
 {
-    foreach (var item in arr)
+    for (int i = 0; i < arr.Length; i++)
     {
-        Console.WriteLine(item);
+        Console.Write($"{arr[i]} ");
     }
 }
 
-PrintMyArray(FilterStringForLength(secondArray, 3));
+for (int j = 0; j < all.Length; j++)
+{
+    Console.Write("[");
+    PrintMyArray(FilterStringForLength(all[j], 3));
+    Console.Write("]");
+    Console.WriteLine();
+}
 
